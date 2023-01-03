@@ -23,4 +23,10 @@ export class TokenStorageService {
     return window.sessionStorage.getItem(TOKEN_KEY);
   }
 
+  public saveUser(id : number): void {
+    let strId = id.toString();
+    window.sessionStorage.removeItem(USER_KEY);
+    window.sessionStorage.setItem(USER_KEY, strId);
+  }
+
 }

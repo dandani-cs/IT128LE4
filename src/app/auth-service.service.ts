@@ -5,6 +5,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthServiceService {
+  isLoggedIn: boolean = false;
+  public redirectUrl: string = "";
 
   constructor(private http: HttpClient) { 
 
