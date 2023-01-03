@@ -5,7 +5,6 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthServiceService } from 'src/app/auth-service.service';
 import { TokenStorageService } from 'src/app/token-storage.service';
-import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-login-page',
