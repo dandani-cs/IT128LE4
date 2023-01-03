@@ -38,6 +38,7 @@ export class LoginPageComponent implements OnInit {
       this.tokenStorage.saveToken(data.id_token);
       this.tokenStorage.saveUser(data.id);
       this.router.navigate([this.authService.redirectUrl]);
+      window.location.reload();
     })
   }
 
