@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-page',
@@ -10,23 +11,26 @@ export class RegisterPageComponent implements OnInit {
   form: any = {
     username: null,
     password: null,
-    firstname: null,
-    lastname: null
+    firstName: null,
+    lastName: null
   }
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private route: Router) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(): void {
     const {
-      username, password, firstname, lastname
-    } = this.form;
+      username, password, firstName, lastName
+    } = this.form
 
-    // this.http.post<string>("https://localhost:7161/api/Login/register" ).subscribe(data => {
-    //   console.log(data);
-    // })
+    console.log(this.form);
+
+    this.http.post("https://localhost:7161/api/Login/register", this.form, {responseType: 'text'}).subscribe(data => {
+      this.route.navigate(['/login'])
+    })
   }
 
 }
